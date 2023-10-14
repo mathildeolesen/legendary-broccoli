@@ -35,3 +35,9 @@ jobs:
     # but for structure and viewing purposes I'm running the tests separately as well
     - name: Run tests with Maven
       run: mvn -B test --file pom.xml
+
+
+
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.6.0
+
