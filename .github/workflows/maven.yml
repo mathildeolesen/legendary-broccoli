@@ -28,14 +28,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Cache Maven packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    # "Build with Maven" job will also run the tests,
+    # but for structure and viewing purposes I'm running the tests separately as well
     - name: Run tests with Maven
       run: mvn -B test --file pom.xml
