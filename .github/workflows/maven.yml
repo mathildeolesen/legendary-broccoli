@@ -40,4 +40,6 @@ jobs:
 
     - name: Test Reporter
       uses: dorny/test-reporter@v1.6.0
+      with:
+       name: Test report
 
